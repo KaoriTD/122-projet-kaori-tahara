@@ -4,11 +4,15 @@ Projet JavaScript — Cours 122 (ESIG)
 
 ## Description
 
-[Décris ton projet ici : quel type de données tu gères et pourquoi tu as choisi cette ressource]
+Ce projet gère des données sur 12 personnages de Sanrio 💖
+Chaque personnage est représenté par plusieurs informations comme son nom, sa catégorie, son année de création, son image et une note inspirée du Sanrio Character Ranking 2025 🏆
+
+J’ai choisi cette thématique car j’aime l’univers de Sanrio et ses personnages mignons, ce qui rend le projet plus amusant à réaliser ✨
+Cela permet aussi de travailler avec des données simples tout en créant une petite collection visuelle agréable 🌸
 
 ## Lien GitHub Pages
 
-[Colle ici le lien de ton site en ligne]
+https://kaoritd.github.io/122-projet-kaori-tahara/
 
 ## Fonctionnalités
 
