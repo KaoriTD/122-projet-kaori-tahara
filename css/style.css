@@ -7,6 +7,70 @@
 }
 
 body {
-  font-family: system-ui, sans-serif;
-  padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  background: linear-gradient(180deg, #fff7fb 0%, #fef6ff 100%);
+  color: #5b4b7a;
+}
+
+.site-header {
+  text-align: center;
+  padding: 2rem 1rem 1.5rem;
+  background: #ffdff0;
+  border-bottom: 3px solid #f9b9dd;
+  box-shadow: 0 4px 14px rgba(91, 75, 122, 0.12);
+}
+
+.site-header h1 {
+  font-size: 2rem;
+  letter-spacing: 0.03em;
+}
+
+.tagline {
+  margin-top: 0.5rem;
+  color: #7f67a8;
+}
+
+main {
+  flex: 1;
+  width: min(1000px, 100%);
+  margin: 1.75rem auto;
+  padding: 0 1rem;
+}
+
+#list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+#list li {
+  background: #ffffff;
+  border: 2px solid #ffd2ec;
+  border-radius: 16px;
+  padding: 0.75rem;
+  text-align: center;
+  box-shadow: 0 6px 12px rgba(147, 107, 156, 0.12);
+}
+
+#list li div:first-child {
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+#list img {
+  width: 100%;
+  max-width: 140px;
+  height: auto;
+}
+
+.site-footer {
+  text-align: center;
+  padding: 1rem;
+  background: #ffe8f4;
+  border-top: 3px solid #f9b9dd;
+  color: #7f67a8;
 }

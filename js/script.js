@@ -57,7 +57,7 @@ const data = [
         category: "Bird",
         year: 1993,
         ranking: 11,
-        image: "img/bad-badtz-Maru.png",
+        image: "img/bad-badtz-maru.png",
     },
     {
         id: 8,
@@ -120,7 +120,7 @@ const data = [
 //Récupère la liste #liste
 const ulList = document.getElementById("list");
 
-//Parcours la liste et crére un li par character
+//Parcours la liste et créer un li par character
 data.forEach(item => {
     ulList.innerHTML += `
         <li>
