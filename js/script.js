@@ -117,14 +117,31 @@ const data = [
     }
 ];
 
-//Récupère la liste #liste
-const ulList = document.getElementById("list");
+/**
+ * Affiche les Characters dans la page
+ * @param {Array} tabCharacters - Tableau d'objets Characters à afficher
+ */
+function afficherCharacters(tabCharacters) {
+
+    //Récupère la liste #list
+    const ulList = document.getElementById("list");
+    // Vide, réinitialise la liste
+    ulList.innerHTML = "";
 
 //Parcours la liste et créer un li par character
-data.forEach(item => {
-    ulList.innerHTML += `
-        <li>
-            <div>${item.name}</div>
-            <div><img src="${item.image}" alt="${item.name}"></div>
-        </li>`;
-});
+    tabCharacters.forEach(character => {
+        ulList.innerHTML += `
+        <article class="card">
+            <img src="${character.image}" alt="${character.name}">
+            <div class="card-body">
+                <h2>${character.name}</h2>
+                <p>${character.category} - ${character.year}</p>
+                <span class="ranking">${character.ranking}</span>
+            </div>
+        </article>
+    `;
+    });
+}
+
+// Appel au chargement de la page
+afficherCharacters(data);
