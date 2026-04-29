@@ -117,6 +117,29 @@ const data = [
     }
 ];
 
+// Bouton de tri
+const btnSort = document.getElementById("btn-sort");
+
+// Sens du tri
+let sortAsc = false; // Tri DESC par défaut
+
+btnSort.addEventListener("click", function () {
+
+    // Tri UNE COPIE du tableau par notes DESC
+    let sortedTab = [...data].sort(function (a, b) {
+        return (sortAsc) ? a.ranking - b.ranking : b.ranking - a.ranking;
+    });
+    // Inverse le tableau
+    sortAsc = !sortAsc;
+
+    // Modifier le texte du bouton
+    btnSort.textContent = sortAsc ? "Trier par ranking ↑ (ASC)" : "Trier par ranking ↓ (DESC)";
+
+    // Affiche tableau
+    afficherCharacters(sortedTab);
+});
+
+
 /**
  * Affiche les Characters dans la page
  * @param {Array} tabCharacters - Tableau d'objets Characters à afficher
