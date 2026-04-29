@@ -125,23 +125,25 @@ function afficherCharacters(tabCharacters) {
 
     //Récupère la liste #list
     const ulList = document.getElementById("list");
-    // Vide, réinitialise la liste
-    ulList.innerHTML = "";
+    // Variable temporaire pour construire
+     let html= "";
 
 //Parcours la liste et créer un li par character
     tabCharacters.forEach(character => {
-        ulList.innerHTML += `
+        html += `
         <article class="card">
             <img src="${character.image}" alt="${character.name}">
             <div class="card-body">
                 <h2>${character.name}</h2>
                 <p>${character.category} - ${character.year}</p>
-                <span class="ranking">${character.ranking}</span>
+                <span class="ranking">Rank #${character.ranking}</span>
             </div>
         </article>
     `;
     });
+    ulList.innerHTML = html;
 }
+// Ajouter la liste complète dans le DOM
 
 // Appel au chargement de la page
 afficherCharacters(data);
