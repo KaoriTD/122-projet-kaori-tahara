@@ -14,25 +14,25 @@ Cela permet aussi de travailler avec des données simples tout en créant une pe
 
 👉 https://kaoritd.github.io/122-projet-kaori-tahara/
 
-## Fonctionnalités
+## ⚙️ Fonctionnalités
 
-- [ ] Affichage dynamique de la liste
-- [ ] Tri par plusieurs critères
+- 📋 Affichage dynamique de la liste
+- 🔽 Tri par plusieurs critères
 - [ ] Recherche en temps réel
 - [ ] Ajout via formulaire
 - [ ] Suppression d'éléments
 - [ ] Responsive (mobile + desktop)
 
-## Captures d'écran
+## 📸 Captures d'écran
 
 [Ajoute des captures de ton projet ici]
 
-## Transparence IA
+## 🤖 Transparence IA
 
-### Outils utilisés
+### 🛠️ Outils utilisés
 [Quels outils d'IA as-tu utilisés ? (Copilot, ChatGPT, Claude, etc.)]
 
-### 🤖 Prompts utilisés
+### 💬 Prompts utilisés
 #### Générer les données
 Je suis étudiant en informatique et je crée un site web en JavaScript
 pour gérer une collection de charactères de Sanrio.
@@ -59,7 +59,7 @@ que mon exemple. Les données doivent être réalistes et variées :
 Remplace le contenu du tableau data par ces nouvelles données.
 Donne-moi UNIQUEMENT le code JavaScript, rien d'autre.
 
-### Ce que j'ai appris vs ce que l'IA a généré
+### 🧠 Ce que j'ai appris vs ce que l'IA a généré
 [Explique ce que tu as écrit toi-même et ce que l'IA a produit. Qu'as-tu appris en utilisant l'IA ?]
 
 ---
