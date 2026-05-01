@@ -1,7 +1,7 @@
 "use strict";
 
 // Tableau de données — à générer avec Copilot / une IA
-//Rating by https://www.sanrio.co.jp/special/characterranking/2025/en/result/
+// Rating by https://www.sanrio.co.jp/special/characterranking/2025/en/result/
 const data = [
     {
         id: 1,
@@ -117,9 +117,12 @@ const data = [
     }
 ];
 
+/**
+ * Trier les personnages à l'aide du bouton
+ * @type {HTMLElement}
+ */
 // Bouton de tri
 const btnSort = document.getElementById("btn-sort");
-
 // Sens du tri
 let sortAsc = false; // Tri DESC par défaut
 
@@ -132,13 +135,25 @@ btnSort.addEventListener("click", function () {
     // Inverse le tableau
     sortAsc = !sortAsc;
 
-    // Modifier le texte du bouton
-    btnSort.textContent = sortAsc ? "Trier par ranking ↑ (ASC)" : "Trier par ranking ↓ (DESC)";
+    // Modify the button text
+    btnSort.textContent = sortAsc ? "Sort by ranking ↑ (ASC)" : "Sort by ranking ↓ (DESC)";
 
     // Affiche tableau
     afficherCharacters(sortedTab);
 });
 
+/**
+ * Recherche des personnages par leur nom.
+ */
+const searchInput = document.getElementById("search");
+
+searchInput.addEventListener("input", () => {
+    const query = searchInput.value.toLowerCase();
+    const filtered = data.filter(item =>
+        item.name.toLowerCase().includes(query)
+    );
+    afficherCharacters(filtered);
+});
 
 /**
  * Affiche les Characters dans la page
