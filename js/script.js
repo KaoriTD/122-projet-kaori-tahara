@@ -121,38 +121,45 @@ const data = [
  * Trier les personnages à l'aide du bouton
  * @type {HTMLElement}
  */
-// Bouton de tri
 const btnSort = document.getElementById("btn-sort");
-// Sens du tri
-let sortAsc = false; // Tri DESC par défaut
-
-btnSort.addEventListener("click", function () {
-
-    // Tri UNE COPIE du tableau par notes DESC
-    let sortedTab = [...data].sort(function (a, b) {
-        return (sortAsc) ? a.ranking - b.ranking : b.ranking - a.ranking;
-    });
-    // Inverse le tableau
-    sortAsc = !sortAsc;
-
-    // Modify the button text
-    btnSort.textContent = sortAsc ? "Sort by ranking ↑ (ASC)" : "Sort by ranking ↓ (DESC)";
-
-    // Affiche tableau
-    afficherCharacters(sortedTab);
-});
 
 /**
  * Recherche des personnages par leur nom.
  */
 const searchInput = document.getElementById("search");
 
-searchInput.addEventListener("input", () => {
+// Sens du tri
+let sortAsc = false; // Tri DESC par défaut
+
+/**
+ * Rafraîchit l'affichage en combinant filtre et tri.
+ * Filtre d'abord selon la recherche, puis trie selon l'état sortAsc.
+ */
+function refresh() {
     const query = searchInput.value.toLowerCase();
-    const filtered = data.filter(item =>
+
+    // 1. Filtrer selon le champ de recherche
+    let result = data.filter(item =>
         item.name.toLowerCase().includes(query)
     );
-    afficherCharacters(filtered);
+
+    // 2. Trier selon l'état du bouton
+    result = [...result].sort((a, b) =>
+        sortAsc ? a.ranking - b.ranking : b.ranking - a.ranking
+    );
+
+    // 3. Afficher le résultat
+    afficherCharacters(result);
+}
+
+// Recherche : à chaque frappe, on rafraîchit
+searchInput.addEventListener("input", refresh);
+
+// Tri : on inverse l'état, on met à jour le bouton, puis on rafraîchit
+btnSort.addEventListener("click", () => {
+    sortAsc = !sortAsc;
+    btnSort.textContent = sortAsc ? "Sort by ranking ↑ (ASC)" : "Sort by ranking ↓ (DESC)";
+    refresh();
 });
 
 /**
