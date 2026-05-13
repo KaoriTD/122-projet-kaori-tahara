@@ -13,8 +13,39 @@
   </header>
 
   <main>
-    <button id="btn-sort">Sort by ranking ↓ (DESC)</button>
-    <input type="text" id="search" placeholder="Search for a character...">
+    <form id="form-add" method="POST">
+
+      <div class="form-group">
+        <label for="input-name"> Character name</label>
+        <input name="nom" id="input-name" type="text" placeholder="Ex : Sanrio" required>
+      </div>
+
+      <div class="form-group">
+        <label for="input-category">Category</label>
+          <select id="input-category" name="category">
+            <option value="Cat">Cat</option>
+            <option value="Dog">Dog</option>
+            <option value="Rabbit">Rabbit</option>
+            <option value="Bird">Bird</option>
+            <option value="Fairy">Fairy</option>
+            <option value="Mermen">Mermen</option>
+            <option value="Egg">Egg</option>
+            <option value="Red Panda">Red Panda</option>
+          </select>
+      </div>
+
+      <div class="form-group">
+        <label for="input-ranking">Ranking</label>
+        <input name="ranking" id="input-ranking" type="number" min="1" max="36" placeholder="12">
+      </div>
+
+        <button type="submit">Add</button>
+    </form>
+
+    <div class="toolbar">
+      <input type="text" id="search" placeholder="Search for a character...">
+      <button id="btn-sort">Sort by ranking ↓ (DESC)</button>
+    </div>
     <ul id="list"></ul>
   </main>
 

@@ -2,7 +2,7 @@
 
 // Tableau de données — à générer avec Copilot / une IA
 // Rating by https://www.sanrio.co.jp/special/characterranking/2025/en/result/
-const data = [
+let data = [
     {
         id: 1,
         name: "Hello Kitty",
@@ -117,16 +117,14 @@ const data = [
     }
 ];
 
-/**
- * Trier les personnages à l'aide du bouton
- * @type {HTMLElement}
- */
+// Eléments du DOM
 const btnSort = document.getElementById("btn-sort");
-
-/**
- * Recherche des personnages par leur nom.
- */
 const searchInput = document.getElementById("search");
+const form = document.getElementById("form-add");
+const inputName = document.getElementById("input-name");
+const inputCategory = document.getElementById("input-category");
+const inputRanking = document.getElementById("input-ranking");
+const list = document.getElementById("list");
 
 // Sens du tri
 let sortAsc = false; // Tri DESC par défaut
@@ -152,9 +150,6 @@ function refresh() {
     afficherCharacters(result);
 }
 
-// Recherche : à chaque frappe, on rafraîchit
-searchInput.addEventListener("input", refresh);
-
 // Tri : on inverse l'état, on met à jour le bouton, puis on rafraîchit
 btnSort.addEventListener("click", () => {
     sortAsc = !sortAsc;
@@ -162,18 +157,57 @@ btnSort.addEventListener("click", () => {
     refresh();
 });
 
+// Recherche : à chaque frappe, on rafraîchit
+searchInput.addEventListener("input", refresh);
+
+// Formulaire : add a character
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const newCharacter = {
+        id: Date.now(),
+        name: inputName.value.trim(),
+        category: inputCategory.value,
+        ranking: Number(inputRanking.value),
+        year: new Date().getFullYear(),
+        image: "img/hello-kitty.png", // Image par défaut
+    };
+
+    data.push(newCharacter); // Ajouter au tableau de données
+    refresh();               // Rafraîchir l'affichage
+
+    form.reset();            // Vider tous les champs
+});
+
+// Suppression : délégation sur le conteneur #list
+document.getElementById("list").addEventListener("click", function (event) {
+   const btn = event.target.closest(".btn-delete");
+   if (!btn) return;
+
+   const card = btn.closest(".card");
+   const id = Number(card.dataset.id);
+
+   if (!confirm("Delete this character?")) return;
+
+   data = data.filter(item => item.id === id);
+   refresh();
+});
+
 /**
  * Affiche les Characters dans la page
  * @param {Array} tabCharacters - Tableau d'objets Characters à afficher
  */
 function afficherCharacters(tabCharacters) {
+    const container = document.getElementById("list");
 
-    //Récupère la liste #list
-    const ulList = document.getElementById("list");
-    // Variable temporaire pour construire
-     let html= "";
+    // Guard clause : si le tableau est vide, afficher un message et stopper
+    if (tabCharacters.length === 0) {
+        container.innerHTML = "<p class='no-result'>Aucun résultat pour cette recherche.</p>";
+        return;
+    }
+    let html = "";
 
-//Parcours la liste et créer un li par character
+    // Parcours la liste et créer une carte par personnage
     tabCharacters.forEach(character => {
         html += `
         <article class="card">
@@ -182,13 +216,13 @@ function afficherCharacters(tabCharacters) {
                 <h2>${character.name}</h2>
                 <p>${character.category} - ${character.year}</p>
                 <span class="ranking">Rank #${character.ranking}</span>
+                <button class="btn-delete">Supprimer</button>
             </div>
         </article>
     `;
     });
-    ulList.innerHTML = html;
+    list.innerHTML = html;
 }
-// Ajouter la liste complète dans le DOM
 
 // Appel au chargement de la page
-afficherCharacters(data);
+refresh();
