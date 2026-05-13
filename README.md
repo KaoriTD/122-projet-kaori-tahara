@@ -30,7 +30,7 @@ Cela permet aussi de travailler avec des données simples tout en créant une pe
 ## 🤖 Transparence IA
 
 ### 🛠️ Outils utilisés
-[Quels outils d'IA as-tu utilisés ? (Copilot, ChatGPT, Claude, etc.)]
+Copilot et ChatGPT
 
 ### 💬 Prompts utilisés
 #### Générer les données
@@ -60,7 +60,14 @@ Remplace le contenu du tableau data par ces nouvelles données.
 Donne-moi UNIQUEMENT le code JavaScript, rien d'autre.
 
 ### 🧠 Ce que j'ai appris vs ce que l'IA a généré
-[Explique ce que tu as écrit toi-même et ce que l'IA a produit. Qu'as-tu appris en utilisant l'IA ?]
+J’ai personnellement réalisé la structure du projet, la gestion des données et l’implémentation des fonctionnalités principales (affichage, tri, recherche, etc.).
+
+L’IA m’a aidé à :
+
+* corriger certaines erreurs
+* formuler des textes plus clairs pour le README
+
+Grâce à cela, j’ai mieux compris comment organiser un projet JavaScript et manipuler des données de manière dynamique 💡
 
 ---
 
