@@ -164,6 +164,23 @@ searchInput.addEventListener("input", refresh);
 form.addEventListener("submit", (event) => {
     event.preventDefault();
 
+    const name = inputName.value.trim();
+    const rating = Number(inputRanking.value);
+
+    // Vérification du nom
+    if (!name) {
+        alert("Le nom est requis.");
+        inputName.focus(); // Replace le curseur dans le champ problématique
+        return;
+    }
+
+    // Vérification de la note
+    if (!rating || rating < 1 || rating > 40) {
+        alert("La note doit être entre 1 et 40.");
+        inputRanking.focus();
+        return;
+    }
+
     const newCharacter = {
         id: Date.now(),
         name: inputName.value.trim(),
@@ -189,7 +206,7 @@ document.getElementById("list").addEventListener("click", function (event) {
 
    if (!confirm("Delete this character?")) return;
 
-   data = data.filter(item => item.id === id);
+   data = data.filter(item => item.id !== id);
    refresh();
 });
 
@@ -210,7 +227,7 @@ function afficherCharacters(tabCharacters) {
     // Parcours la liste et créer une carte par personnage
     tabCharacters.forEach(character => {
         html += `
-        <article class="card">
+        <article class="card" data-id="${character.id}">
             <img src="${character.image}" alt="${character.name}">
             <div class="card-body">
                 <h2>${character.name}</h2>

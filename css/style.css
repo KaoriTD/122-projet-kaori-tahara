@@ -68,6 +68,7 @@ main {
   height: 200px;
   object-fit: contain;
   background: #ffffff;
+  margin-top: 0.52rem;
 }
 
 .card-body {
@@ -118,12 +119,46 @@ input, select {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  max-width: 250px;
 }
 
 input:focus, select:focus {
   outline: none;
   border-color: #0078d4;
 }
+
+#input-category {
+  background-color: #ffe8f4;
+}
+
+button[type="submit"] {
+  padding: 8px 16px;
+  background-color: #f9b9dd;
+  color: #5b4b7a;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button[type="submit"]:hover {
+  background-color: #f395ca;
+}
+
+#btn-sort {
+  padding: 8px 16px;
+  background-color: #f9b9dd;
+  color: #5b4b7a;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#btn-sort:hover {
+  background-color: #f395ca;
+}
+
 .btn-delete {
   margin-top: 8px;
   padding: 6px 12px;
@@ -147,4 +182,22 @@ input:focus, select:focus {
   color: #666;
   font-style: italic;
   padding: 1rem 0;
+}
+
+.toolbar {
+  margin-bottom: 1.5rem;
+}
+
+/* @media : les règles à l'intérieur ne s'appliquent QUE si la largeur
+   de la fenêtre est inférieure ou égale à 600px */
+@media (max-width: 600px) {
+  .toolbar {
+    /* Sur mobile : empiler les éléments verticalement */
+    flex-direction: column;
+  }
+
+  #search {
+    /* Supprimer la limite de 400px — utiliser toute la largeur disponible */
+    max-width: 100%;
+  }
 }
