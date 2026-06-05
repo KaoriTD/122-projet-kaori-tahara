@@ -1,5 +1,27 @@
-/* Styles du projet */
+/* ============================================================
+   Styles du projet (réorganisés)
+   Sections : variables, reset, layout, composants, formulaires,
+   boutons, cartes, utilitaires, responsive
+   ============================================================ */
 
+:root {
+  /* Palette accessible — ajustez si besoin */
+  --bg-gradient-start: #fff7fb;
+  --bg-gradient-end: #fef6ff;
+  --text: #332244; /* texte principal (contraste élevé) */
+  --muted: #5f4878; /* texte secondaire */
+  --card-border: #ffd2ec;
+  --card-body-bg: #fff0f8;
+  --button-bg: #f7a6ce;
+  --button-text: #2e1d48;
+  --button-hover: #f395ca;
+  --delete-bg: #e74c3c;
+  --delete-hover: #a02b1f;
+}
+
+/* -----------------------
+   Reset / global
+   ----------------------- */
 * {
   margin: 0;
   padding: 0;
@@ -11,10 +33,14 @@ body {
   display: flex;
   flex-direction: column;
   font-family: "Trebuchet MS", "Segoe UI", sans-serif;
-  background: linear-gradient(180deg, #fff7fb 0%, #fef6ff 100%);
-  color: #5b4b7a;
+  background: linear-gradient(180deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
 }
 
+/* -----------------------
+   Layout principal
+   ----------------------- */
 .site-header {
   text-align: center;
   padding: 2rem 1rem 1.5rem;
@@ -30,7 +56,7 @@ body {
 
 .tagline {
   margin-top: 0.5rem;
-  color: #7f67a8;
+  color: var(--muted);
 }
 
 main {
@@ -40,6 +66,31 @@ main {
   padding: 0 1rem;
 }
 
+/* -----------------------
+   Toolbar / recherche
+   ----------------------- */
+.toolbar {
+  margin-bottom: 1.5rem;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+#search {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  max-width: 400px;
+}
+
+#search:focus {
+  outline: 2px solid #0078d4;
+  outline-offset: 2px;
+}
+
+/* -----------------------
+   Liste (grid) et cartes
+   ----------------------- */
 #list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -50,7 +101,7 @@ main {
 
 .card {
   background: #ffffff;
-  border: 2px solid #ffd2ec;
+  border: 2px solid var(--card-border);
   border-radius: 16px;
   overflow: hidden;
   text-align: center;
@@ -68,21 +119,23 @@ main {
   height: 200px;
   object-fit: contain;
   background: #ffffff;
+  margin-top: 0.52rem;
 }
 
 .card-body {
   padding: 1rem;
-  background: #ffe8f4;
+  background: var(--card-body-bg);
+  color: var(--text);
 }
 
 .card-body h2 {
   margin-bottom: 0.4rem;
-  color: #5b4b7a;
+  color: var(--text);
   font-size: 1.1rem;
 }
 
 .card-body p {
-  color: #7f67a8;
+  color: var(--muted);
   margin-bottom: 0.55rem;
 }
 
@@ -90,21 +143,16 @@ main {
   display: inline-block;
   padding: 0.2rem 0.55rem;
   border-radius: 999px;
-  background: #ffe8f4;
-  color: #7f67a8;
+  background: var(--card-body-bg);
+  color: var(--muted);
   font-weight: 700;
 }
 
-.site-footer {
-  text-align: center;
-  padding: 1rem;
-  background: #ffe8f4;
-  border-top: 3px solid #f9b9dd;
-  color: #7f67a8;
-}
-/*formulaire*/
-form{
-  margin-bottom: 1em ;
+/* -----------------------
+   Formulaire
+   ----------------------- */
+form {
+  margin-bottom: 1em;
 }
 
 .form-group {
@@ -118,33 +166,104 @@ input, select {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  max-width: 250px;
 }
 
 input:focus, select:focus {
-  outline: none;
-  border-color: #0078d4;
+  outline: 2px solid #0078d4;
+  outline-offset: 2px;
 }
+
+#input-category {
+  background-color: #ffe8f4;
+}
+
+/* -----------------------
+   Boutons
+   ----------------------- */
+button[type="submit"] {
+  padding: 8px 16px;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button[type="submit"]:hover,
+#btn-sort:hover {
+  background-color: var(--button-hover);
+}
+
+#btn-sort {
+  padding: 8px 16px;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
 .btn-delete {
   margin-top: 8px;
   padding: 6px 12px;
-  background-color: #e74c3c;
+  background-color: var(--delete-bg);
   color: white;
-  /* Supprime la bordure par défaut des <button> */
   border: none;
   border-radius: 4px;
-  /* Affiche la main au survol */
   cursor: pointer;
-  /* Légèrement plus petit que le texte normal (1rem) */
   font-size: 0.85rem;
 }
 
 .btn-delete:hover {
-  /* Rouge plus foncé au survol — feedback visuel */
-  background-color: #c0392b;
+  background-color: var(--delete-hover);
 }
+
+/* -----------------------
+   Footer
+   ----------------------- */
+.site-footer {
+  text-align: center;
+  padding: 1rem;
+  background: #ffe8f4;
+  border-top: 3px solid #f9b9dd;
+  color: var(--muted);
+}
+
 .no-result {
-  /* Texte discret — information secondaire, pas une erreur */
   color: #666;
   font-style: italic;
   padding: 1rem 0;
+}
+
+/* -----------------------
+   Responsive
+   ----------------------- */
+@media (max-width: 600px) {
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #search {
+    max-width: 100%;
+  }
+}
+
+/* -----------------------
+   Utilities
+   ----------------------- */
+/* Classe "screen-reader only" — masque visuellement mais reste accessible */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

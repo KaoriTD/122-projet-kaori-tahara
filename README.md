@@ -18,10 +18,10 @@ Cela permet aussi de travailler avec des données simples tout en créant une pe
 
 - 📋 Affichage dynamique de la liste
 - 🔽 Tri par plusieurs critères
-- [ ] Recherche en temps réel
-- [ ] Ajout via formulaire
-- [ ] Suppression d'éléments
-- [ ] Responsive (mobile + desktop)
+- 🔍 Recherche en temps réel
+- ➕ Ajout via formulaire
+- ❌ Suppression d'éléments
+- 📱 Responsive (mobile + desktop)
 
 ## 📸 Captures d'écran
 
