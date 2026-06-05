@@ -117,6 +117,14 @@ let data = [
     }
 ];
 
+// ============================================================
+// CONFIGURATION & CONSTANTES
+// ============================================================
+
+// Constantes de validation
+const RANKING_MIN = 1;
+const RANKING_MAX = 40;
+
 // Eléments du DOM
 const btnSort = document.getElementById("btn-sort");
 const searchInput = document.getElementById("search");
@@ -126,12 +134,17 @@ const inputCategory = document.getElementById("input-category");
 const inputRanking = document.getElementById("input-ranking");
 const list = document.getElementById("list");
 
-// Sens du tri
+// État de tri
 let sortAsc = false; // Tri DESC par défaut
+let isSorted = false; // Aucun tri appliqué au démarrage
+
+// ============================================================
+// FONCTIONS UTILITAIRES
+// ============================================================
 
 /**
  * Rafraîchit l'affichage en combinant filtre et tri.
- * Filtre d'abord selon la recherche, puis trie selon l'état sortAsc.
+ * Filtre d'abord selon la recherche, puis trie selon l'état isSorted.
  */
 function refresh() {
     const query = searchInput.value.toLowerCase();
@@ -141,10 +154,12 @@ function refresh() {
         item.name.toLowerCase().includes(query)
     );
 
-    // 2. Trier selon l'état du bouton
-    result = [...result].sort((a, b) =>
-        sortAsc ? a.ranking - b.ranking : b.ranking - a.ranking
-    );
+    // 2. Trier seulement si l'utilisateur a cliqué sur le bouton
+    if (isSorted) {
+        result = [...result].sort((a, b) =>
+            sortAsc ? a.ranking - b.ranking : b.ranking - a.ranking
+        );
+    }
 
     // 3. Afficher le résultat
     afficherCharacters(result);
@@ -152,6 +167,7 @@ function refresh() {
 
 // Tri : on inverse l'état, on met à jour le bouton, puis on rafraîchit
 btnSort.addEventListener("click", () => {
+    isSorted = true; // Activer le tri
     sortAsc = !sortAsc;
     btnSort.textContent = sortAsc ? "Sort by ranking ↑ (ASC)" : "Sort by ranking ↓ (DESC)";
     refresh();
@@ -165,7 +181,7 @@ form.addEventListener("submit", (event) => {
     event.preventDefault();
 
     const name = inputName.value.trim();
-    const rating = Number(inputRanking.value);
+    const ranking = Number(inputRanking.value);
 
     // Vérification du nom
     if (!name) {
@@ -174,12 +190,12 @@ form.addEventListener("submit", (event) => {
         return;
     }
 
-    // Vérification de la note
-    if (!rating || rating < 1 || rating > 40) {
-        alert("La note doit être entre 1 et 40.");
-        inputRanking.focus();
-        return;
-    }
+     // Vérification de la note
+     if (!ranking || ranking < RANKING_MIN || ranking > RANKING_MAX) {
+         alert(`La note doit être entre ${RANKING_MIN} et ${RANKING_MAX}.`);
+         inputRanking.focus();
+         return;
+     }
 
     const newCharacter = {
         id: Date.now(),
