@@ -25,7 +25,8 @@ Cela permet aussi de travailler avec des données simples tout en créant une pe
 
 ## 📸 Captures d'écran
 
-[Ajoute des captures de ton projet ici]
+<img width="636" height="877" alt="image" src="https://github.com/user-attachments/assets/a3b73199-bfa8-4f38-9321-15b10a8a3607" />
+
 
 ## 🤖 Transparence IA
 

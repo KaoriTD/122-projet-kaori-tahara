@@ -5,7 +5,7 @@
    ============================================================ */
 
 :root {
-  /* Palette accessible — ajustez si besoin */
+  /* Palette accessible */
   --bg-gradient-start: #fff7fb;
   --bg-gradient-end: #fef6ff;
   --text: #332244; /* texte principal (contraste élevé) */
