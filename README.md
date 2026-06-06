@@ -61,11 +61,13 @@ Remplace le contenu du tableau data par ces nouvelles données.
 Donne-moi UNIQUEMENT le code JavaScript, rien d'autre.
 
 ### 🧠 Ce que j'ai appris vs ce que l'IA a généré
-J’ai personnellement réalisé la structure du projet, la gestion des données et l’implémentation des fonctionnalités principales (affichage, tri, recherche, etc.).
+La structure du projet a été fournie par l'enseignant, et l'implémentation des fonctionnalités principales (affichage, tri, recherche, ajout, suppression) a été réalisée durant les cours avec son accompagnement.
 
 L’IA m’a aidé à :
 
+* générer les données des 14 personnages Sanrio
 * corriger certaines erreurs
+* organiser et structurer les fichiers script.js, index.html et style.css pour faciliter la relecture
 * formuler des textes plus clairs pour le README
 
 Grâce à cela, j’ai mieux compris comment organiser un projet JavaScript et manipuler des données de manière dynamique 💡
