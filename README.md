@@ -35,7 +35,7 @@ Copilot et ChatGPT
 
 ### 💬 Prompts utilisés
 #### Générer les données
-Je suis étudiant en informatique et je crée un site web en JavaScript
+Je suis étudiante en informatique et je crée un site web en JavaScript
 pour gérer une collection de charactères de Sanrio.
 
 Voici un exemple de ce que je veux obtenir, avec UN objet :
@@ -55,7 +55,7 @@ Génère un tableau de 14 objets avec EXACTEMENT les mêmes propriétés
 que mon exemple. Les données doivent être réalistes et variées :
 - Au moins 3-4 valeurs différentes pour [PROPRIÉTÉ CATÉGORIE, ex: category]
 - Des valeurs numériques variées pour [PROPRIÉTÉ TRIABLE, ex: ranking]
-- Les id de 1 à 4
+- Les id de 1 à 14
 - Pour chaque image, utilise les images stockés dans le dossier img/
 Remplace le contenu du tableau data par ces nouvelles données.
 Donne-moi UNIQUEMENT le code JavaScript, rien d'autre.
